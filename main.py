@@ -16,7 +16,7 @@ while True:
 
     elif user_message.lower() == "/exit":
         print("\n👋 Goodbye!")                     
-        logger.info("Application closed by user.")
+        #logger.info("Application closed by user.")
         break
         
     else:

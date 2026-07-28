@@ -1,14 +1,20 @@
 from config import PROVIDER
+from provider.gemini import get_response
+from provider.openai import get_response
+
+class ProviderManager:
+        # self.PROVIDER = PROVIDER
+
+    def get_provider(self):
+        if PROVIDER in providers:
+            return PROVIDER
+        else:
+            print("provider not available")
+            raise ValueError(f"Unsupported AI provider: {PROVIDER}")
 
 providers = {
-    gemini : show_help,
-    deepseek : show_about,
-    claude : show_history,
-    openai: show_version,
-    grok : show_clear
+    "gemini" : get_response,
+    "openai" : get_response
+
 }
 
-if PROVIDER in providers:
-    print("provider available")
-else:
-    print("provider not available")

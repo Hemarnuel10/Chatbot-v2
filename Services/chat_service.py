@@ -1,6 +1,6 @@
 from Services.history_service import save_chat, get_recent_history
 from Services.prompt_builder import build_prompt
-
+from provider.provider_manager import ProviderManager
 class ChatService:
 
     def chat(self, user_message):
@@ -15,10 +15,12 @@ class ChatService:
         )
 
         # Get current AI provider
-        provider = ProviderManager.get_provider()
-
+        provider = ProviderManager().get_provider()
+        print(f"provider gotten sucessfull: {provider}")
         # Generate response
-        ai_response = provider.generate(full_prompt)
+        ai_response = provider.get_response(full_prompt)
+        print("ai response gotten sucessfully")
+        
 
         # Save chat
         save_chat(
