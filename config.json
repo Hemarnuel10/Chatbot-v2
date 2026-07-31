@@ -3,5 +3,6 @@
     "version": "2.0.0",
     "developer": "Emmanuel",
     "provider": "gemini",
-    "model": "gemini-2.5-flash"
+    "model": "gemini-2.5-flash",
+    "storage":"json"
 }

@@ -17,4 +17,6 @@ PROVIDER = config["provider"]
 MODEL = config["model"]
 API_KEY = os.getenv("API_KEY")
 
+# Storage
+STORAGE = config["storage"]
 

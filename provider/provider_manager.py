@@ -1,20 +1,19 @@
 from config import PROVIDER
-from provider.gemini import get_response
-from provider.openai import get_response
-
-class ProviderManager:
-        # self.PROVIDER = PROVIDER
-
-    def get_provider(self):
-        if PROVIDER in providers:
-            return PROVIDER
-        else:
-            print("provider not available")
-            raise ValueError(f"Unsupported AI provider: {PROVIDER}")
+from provider.gemini import GeminiProvider
+from provider.openai import OpenaiProvider
 
 providers = {
-    "gemini" : get_response,
-    "openai" : get_response
-
+    "gemini" : GeminiProvider,
+    "openai" : OpenaiProvider
 }
+
+class ProviderManager:
+        @staticmethod
+
+        def get_provider():
+            if PROVIDER not in providers:
+                raise ValueError(f"Unsupported provider: {PROVIDER}")
+    
+            return providers[PROVIDER]()
+
 

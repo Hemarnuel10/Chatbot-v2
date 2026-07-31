@@ -1,5 +1,5 @@
 from config import APP_NAME, VERSION, MODEL, DEVELOPER
-from Services.history_service import load_history, clear_history
+from Services.history_service import historyService
 from others.utils import show_heading
 
 
@@ -38,7 +38,7 @@ Online
 
 
 def show_history():
-    history = load_history()
+    history = historyService.load_history()
 
     if not history:
         print("No conversation history found.")
@@ -60,7 +60,7 @@ def show_clear():
         ).lower()
 
         if confirm in ["y", "yes"]:
-            clear_history()
+            historyService.clear_history()
             print("Conversation history cleared successfully.")
             break
 
@@ -78,7 +78,7 @@ def show_model():
 
 def show_stats():
     show_heading(f"{APP_NAME} Statistics" )
-    history = load_history()
+    history = historyService.load_history()
     if len(history) > 0:
         print(f"\nTotal Conversations: {len(history)}\nFirst Chat: {history[0]["Timestamp"]}\nLast Chat: {history[-1]["Timestamp"]}\nModel Used: {MODEL}")
     else:
